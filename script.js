@@ -1,20 +1,12 @@
-document.getElementById('convert-button').addEventListener('click', function() {
+document.getElementById('convert-button').addEventListener('click', function () {
     const amount = parseFloat(document.getElementById('amount').value);
-    const fromCurrency = document.getElementById('from-currency-select').value;
-    const toCurrency = document.getElementById('to-currency-select').value;
     const rate = parseFloat(document.getElementById('rate').value);
 
-    let result;
+    // Perform the conversion (USD to PHP)
+    let result = amount * rate;
 
-    if (fromCurrency === 'USD' && toCurrency === 'PHP') {
-        result = amount * rate;
-    } else if (fromCurrency === 'PHP' && toCurrency === 'USD') {
-        result = amount / rate;
-    } else {
-        result = amount; 
-    }
-
+    // Round the result to the nearest whole number
     result = Math.round(result);
 
-    document.getElementById('result').textContent = `Result: ${result} ${toCurrency}`;
+    document.getElementById('result').textContent = `Result: ${result} PHP`;
 });
